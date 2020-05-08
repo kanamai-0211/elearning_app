@@ -19,14 +19,14 @@
 <body>
     <div class="container">
         <nav class="navbar">
-            <nav class="navbar navbar-expand-lg ">
+            <nav class="navbar navbar navbar-expand-md navbar-light navbar-laravel">
                 <span class="navbar-text">
-                    Awesome Blog
+                    E-learning
                 </span>
             </nav>
             <ul class="nav navbar">
                 <li class="nav-item">
-                    <a class="nav-link users" href="{{ route('users.list') }}">Users</a>
+                    <a class="nav-link users" href="#">Users</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"

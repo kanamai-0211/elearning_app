@@ -11,7 +11,7 @@
                     <img class="img-fluid img-thumbnail p-3 " src="{{asset('images/demoperson.png')}}"
                         alt="Card image cap">
                     <div class="card-body">
-                        <h4 class="card-title text-center">{{ $user->name }}</h4>
+                        <h4 class="card-title text-center">{{ Auth::user()->name }}</h4>
                         <div class="form-group text-center">
                             <a name="Edit" href="#" class="btn btn-primary mt-3">Edit Profile</a>
                         </div>
@@ -36,7 +36,7 @@
         </div>
         <div class="col-md-8">
             <div class="jumbotron w-100">
-             <!--   <h4 class="text-center">Blog </h4>
+             {{--   <h4 class="text-center">Blog </h4>
                 @foreach ($posts->sortByDesc('created_at') as $post)
                 <div class="card my-4">
                     <div class="card-header">
@@ -53,7 +53,7 @@
                         {{ $post->content }}
                     </div>
                 </div>
-                @endforeach-->
+                @endforeach --}}
             </div>
         </div>
     </div>
