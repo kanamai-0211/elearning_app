@@ -11,9 +11,9 @@
                     <img class="img-fluid img-thumbnail p-3 " src="{{asset('images/demoperson.png')}}"
                         alt="Card image cap">
                     <div class="card-body">
-                        <h4 class="card-title text-center">{{ Auth::user()->name }}</h4>
+                        <h4 class="card-title text-center">{{ $user->name }}</h4>
                         <div class="form-group text-center">
-                            <a name="Edit" href="#" class="btn btn-primary mt-3">Edit Profile</a>
+                            
                         </div>
                         <hr class="my-2">
                         <div class="row text-center">
