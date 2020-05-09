@@ -33,4 +33,11 @@ class HomeController extends Controller
 
         return view('userslist',compact('users'));
     }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+
+        return view('otheruser',compact('user'));
+    }
 }

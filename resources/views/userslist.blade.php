@@ -7,7 +7,7 @@
         <ul class="list-group col-md-6 mx-auto">
             @foreach($users as $user)
                 @if($user != auth()->user())
-                <li class="list-group-item list mb-2">{{$user->name}}</li>
+                <li class="list-group-item list mb-2"><a href="{{ route('users.show',['id' => $user->id]) }}">{{$user->name}}</a></li>
                 @endif
             @endforeach
          </ul>
