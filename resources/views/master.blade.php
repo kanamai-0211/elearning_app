@@ -19,9 +19,9 @@
 <body>
     <div class="container">
         <nav class="navbar">
-            <nav class="navbar navbar-expand-lg ">
+            <nav class="navbar navbar navbar-expand-md navbar-light navbar-laravel">
                 <span class="navbar-text">
-                    Awesome Blog
+                    E-learning
                 </span>
             </nav>
             <ul class="nav navbar">

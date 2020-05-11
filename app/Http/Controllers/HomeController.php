@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,5 +25,19 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function list()
+    {
+        $users = User::all();
+
+        return view('userslist',compact('users'));
+    }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+
+        return view('otheruser',compact('user'));
     }
 }
