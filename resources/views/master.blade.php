@@ -26,7 +26,7 @@
             </nav>
             <ul class="nav navbar">
                 <li class="nav-item">
-                    <a class="nav-link users" href="{{ route('users.list') }}">Users</a>
+                    <a class="nav-link users" href="#">Users</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
