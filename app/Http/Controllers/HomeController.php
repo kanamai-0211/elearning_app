@@ -40,4 +40,23 @@ class HomeController extends Controller
 
         return view('otheruser',compact('user'));
     }
+
+    public function edit($user)
+    {
+        $user = auth()->user();
+
+        return view('editprofile',compact('user'));
+    }
+
+    public function update(Request $request)
+    {
+        $user = auth()->user();
+
+        $user->name = request('name');
+        $user->email = request('email');
+        $user->password = bcrypt(request('password'));
+        $user->save();
+
+        return redirect()->route('home',compact('name','email','password'));
+    }
 }
