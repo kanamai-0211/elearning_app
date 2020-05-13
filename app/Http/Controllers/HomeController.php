@@ -67,7 +67,7 @@ class HomeController extends Controller
         
         }    
         
-        Auth::user([
+        Auth::user()->update([
             'name' => $request->name,
             'email' => $request->email,
         ]);
