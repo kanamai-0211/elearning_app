@@ -22,4 +22,4 @@ Route::get('/users/list','HomeController@list')->name('users.list');
 Route::get('users/{id}','HomeController@show')->name('users.show');
 
 Route::get('/user/{id}/edit','HomeController@edit')->name('profile.edit');
-Route::post('/user/{id}/update','HomeController@update')->name('profile.update');
+Route::post('/user/{id}/update','HomeController@editprofile_update')->name('profile.update');

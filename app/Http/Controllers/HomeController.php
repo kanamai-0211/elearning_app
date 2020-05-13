@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -48,15 +50,28 @@ class HomeController extends Controller
         return view('editprofile',compact('user'));
     }
 
-    public function update(Request $request)
+    public function editprofile_update(Request $request)
     {
-        $user = auth()->user();
+        $this->validate($request,[
+            'name'=> 'required|min:3|max:50|',
+            'email'=>'required|min:3|max:50|',
+        ]);
 
-        $user->name = request('name');
-        $user->email = request('email');
-        $user->password = bcrypt(request('password'));
-        $user->save();
+        if($request->newpassword != null){
+            $request->validate([
+                'newpassword'=> ['required', 'string', 'min:6', 'confirmed']
+            ]);
+            Auth::user()->update([
+                'password' => bcrypt($request->newpassword)
+                ]);
+        
+        }    
+        
+        Auth::user([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
 
-        return redirect()->route('home',compact('name','email','password'));
+        return redirect()->route('home');
     }
 }

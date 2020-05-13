@@ -9,11 +9,18 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('profile.update',['id'=> $user->id]) }}">
                         @csrf
+                        @if(count($errors)>0)
+                            <ul class="list-group">
+                                @foreach($errors->all() as $error)
+                                <li class="alert alert-danger list-unstyled">{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        @endif
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}"
+                                <input id="name" type="text" class="form-control" name="name" value="{{ Auth::user()->name }}"
                                     required autofocus>
                             </div>
                         </div>
@@ -23,7 +30,7 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email"
-                                    value="{{ old('email') }}" required>
+                                    value="{{ Auth::user()->email }}" required>
                             </div>
                         </div>
 
@@ -31,7 +38,8 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" class="form-control" name="newpassword"  >
+                                <span class="text-danger">{{ $errors->first('newpassword') }}</span>
                             </div>
                         </div>
 
@@ -39,7 +47,8 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password" required>
+                                <input id="newpassword-confirm" type="password" class="form-control" name="newpassword_confirmation" >
+                                <span class="text-danger">{{ $errors->first('newpassword') }}</span>
                             </div>
                         </div>
                         
