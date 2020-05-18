@@ -18,11 +18,11 @@
                         <hr class="my-2">
                         <div class="row text-center">
                             <div class="col-md-6 p-2">
-                                <h5>1</h5>
+                                <h5><a href="{{ route('users.followers',['id' => Auth::user()->id ]) }}">{{ Auth::user()->followers()->count() }}</a></h5>
                                 <h6 class="text-muted">Followers</h6>
                             </div>
                             <div class="col-md-6 p-2">
-                                <h5>1</h5>
+                                <h5><a href="{{ route('users.following',['id' => Auth::user()->id])}}">{{ Auth::user()->following()->count() }}</a></h5>
                                 <h6 class="text-muted">Following</h6>
                             </div>
                         </div>
