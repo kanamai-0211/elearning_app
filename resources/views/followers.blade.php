@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="container">
-        <h1 class="text-center">{{ Auth::user()->name }}'s followers</h1>
+        <h1 class="text-center">{{ $user->name }}'s followers</h1>
         <ul class="list-group col-md-6 mx-auto">
             @foreach($followers as $user)
                 @if($user != auth()->user())
