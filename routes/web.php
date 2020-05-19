@@ -29,3 +29,7 @@ Route::get('/user/{id}/unfollow','UserController@unfollow')->name('users.unfollo
 
 Route::get('/users/{id}/following','UserController@following')->name('users.following');
 Route::get('/users/{id}/followers','UserController@followers')->name('users.followers');
+
+Route::get('/admin/categories','AdminController@index')->name('admin.categories');
+Route::get('/admin/categories/create','AdminController@create')->name('categories.create');
+Route::post('admin/categories','AdminController@store')->name('categories.store');
