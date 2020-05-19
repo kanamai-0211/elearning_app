@@ -22,14 +22,10 @@ Route::get('/users/list','HomeController@list')->name('users.list');
 Route::get('users/{id}','HomeController@show')->name('users.show');
 
 Route::get('/user/{id}/edit','HomeController@edit')->name('profile.edit');
-<<<<<<< Updated upstream
 Route::post('/user/{id}/update','HomeController@editprofile_update')->name('profile.update');
-=======
-Route::post('/user/{id}/update','HomeController@update')->name('profile.update');
 
 Route::get('/user/{id}/follow','UserController@follow')->name('users.follow');
 Route::get('/user/{id}/unfollow','UserController@unfollow')->name('users.unfollow');
 
 Route::get('/users/{id}/following','UserController@following')->name('users.following');
 Route::get('/users/{id}/followers','UserController@followers')->name('users.followers');
->>>>>>> Stashed changes
