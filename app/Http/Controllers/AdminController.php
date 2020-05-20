@@ -33,4 +33,33 @@ class AdminController extends Controller
 
        return redirect()->route('admin.categories');
     }
+
+    public function edit($id)
+    {
+        $category = Category::findOrFail($id);
+
+        return view('admin/edit_categories',compact('category'));
+    }
+
+    public function update(Request $request,$id)
+    {
+        $category = Category::find($id);
+        $category->title =request('title');
+        $category->description =request('description');
+        $category->save();
+       /*$category ->update([
+            'title'=> $request->title,
+            'description'=> $request->description
+        ]);*/
+
+        return redirect()->route('admin.categories',compact('title','description'));
+    }
+
+    public function destroy($id)
+    {
+        $category =Category::find($id);
+        $category->delete();
+
+        return redirect()->route('admin.categories');
+    }
 }
