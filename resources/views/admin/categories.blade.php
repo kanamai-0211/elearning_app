@@ -23,8 +23,13 @@
                     <tr>
                         <td>{{ $category->title }}</td>
                         <td>{{ $category->description }}</td>
-                        <td>
-                            <a class="btn btn-primary" href="#">Edit</a>
+                        <td class="d-flex">
+                            <a class="btn btn-primary mr-2" href="{{ route('categories.edit',['id'=>$category->id]) }}">Edit</a>
+                            <form action="{{ route('categories.destroy',['id'=>$category->id]) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

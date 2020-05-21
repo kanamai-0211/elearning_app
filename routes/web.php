@@ -33,3 +33,7 @@ Route::get('/users/{id}/followers','UserController@followers')->name('users.foll
 Route::get('/admin/categories','AdminController@index')->name('admin.categories');
 Route::get('/admin/categories/create','AdminController@create')->name('categories.create');
 Route::post('admin/categories','AdminController@store')->name('categories.store');
+
+Route::get('/admin/categories/{id}/edit','AdminController@edit')->name('categories.edit');
+Route::patch('/admin/categories/{id}/update','AdminController@update')->name('categories.update');
+Route::delete('admin/categories/{id}','AdminController@destroy')->name('categories.destroy');
