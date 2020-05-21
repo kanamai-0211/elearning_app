@@ -13,11 +13,11 @@
                 @method('PATCH')
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
+                    <input type="text" class="form-control" name="title" id="title" value="{{ $category->title }}">
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <input type="text" class="form-control" name="description" id="description" value="{{ old('description') }}">
+                    <input type="text" class="form-control" name="description" id="description" value="{{ $category->description }}">
                 </div>
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary">update</button>
