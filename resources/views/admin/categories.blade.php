@@ -25,7 +25,7 @@
                         <td>{{ $category->description }}</td>
                         <td class="d-flex">
                             <a class="btn btn-primary mr-2" href="{{ route('categories.edit',['id'=>$category->id]) }}">Edit</a>
-                            <form action="{{ route('categories.destroy',['id'=>$category->id]) }}" method="POST">
+                            <form action="{{ route('categories.destroy',['id'=>$question->id]) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-danger">Delete</button>

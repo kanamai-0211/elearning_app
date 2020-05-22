@@ -90,4 +90,12 @@ class AdminqaController extends Controller
         
        return redirect()->route('admin.questions', ['id' => $id]);
     }
+
+    public function destroy($id)
+    {
+        $question = Question::find($id);
+        $question ->delete();
+
+        return redirect()->back();
+    }
 }
