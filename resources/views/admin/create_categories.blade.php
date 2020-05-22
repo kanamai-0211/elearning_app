@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="row col-md-10 mx-auto mt-5">
+<div class="col-md-6 mx-auto">
 <div class="card">
     <div class="card-header">
         create category 
