@@ -31,8 +31,9 @@
                         @endforeach
                         <td class="d-flex">
                             <a href="#" class="btn btn-primary mr-2">Edit</a>
-                            <form action="＃" method="＃">
-                                
+                            <form action="{{ route('questions.delete',['id'=>$question->id ]) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </td>

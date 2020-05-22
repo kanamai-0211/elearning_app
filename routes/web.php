@@ -41,3 +41,4 @@ Route::delete('admin/categories/{id}','AdminController@destroy')->name('categori
 Route::get('/admin/categories/{id}/questions','AdminqaController@index')->name('admin.questions');
 Route::get('/admin/categories/{id}/questions/create','AdminqaController@create')->name('questions.create');
 Route::post('/admin/categories/{id}/questions','AdminqaController@store')->name('questions.store');
+Route::delete('/admin/categories/questions/{id}/destroy','AdminqaController@destroy')->name('questions.delete');
