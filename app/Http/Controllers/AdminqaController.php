@@ -14,10 +14,10 @@ class AdminqaController extends Controller
     public function index($id)
     {
        
-        $category = Category::find($id);
-        $questions = $category->questions;
+        $category = Category::find($id);//categoryのモデルを呼び出す
+        $questions = $category->questions()->get();//呼び出したモデルからリレーションのquestionsを呼び出す
         
-        return view('admin/questions', compact('category'));
+        return view('admin/questions', compact('category','questions'));
     }
 
     public function create($id)
@@ -43,7 +43,7 @@ class AdminqaController extends Controller
        ]) ;
 
         $choice1 = Choice::create([
-            'choice'=> $request->choice1,
+            'choice'=> $request->choice1,//←choice1 (ここはこっちで自由に変えられる)
             'question_id' =>$question->id,
         ]);
 
@@ -97,5 +97,58 @@ class AdminqaController extends Controller
         $question ->delete();
 
         return redirect()->back();
+    }
+
+    public function edit($id)
+    {
+        $question = Question::findOrFail($id);
+
+        return view('admin/edit_questions',compact('question'));
+    }
+
+    public function update(Request $request,$id)
+    {
+        
+        
+        $question = Question::find($id);
+        $choices  = $question->choices()->get();
+        $question->update([
+            'question' => $request->question,
+        ]);
+
+       foreach($choices as $key => $choice)
+       {
+            $choice->update([
+                'choice' => $request->input('choice')[$key],
+                'is_correct'=> 0
+            ]);
+                //[choice1,choice2,choice3,choice4]これでchoices、その中から[]で一つずつ取れる
+                //$choices[0] $choices[1]     
+            if($request->check == 0){
+              $choices[0]->is_correct = 1;
+                $choices[0]->save();
+           }
+
+            elseif($request->check == 1){
+                $choices[1]->is_correct = 1;
+                $choices[1]->save();
+            }
+
+            elseif($request->check == 2){
+               $choices[2]->is_correct = 1;
+                $choices[2]->save();
+            }
+
+            elseif($request->check == 3){
+               $choices[3]->is_correct = 1;
+                $choices[3]->save();
+            }
+
+            
+
+       }
+
+
+        return redirect()->route('admin.questions',$question->category_id);
     }
 }

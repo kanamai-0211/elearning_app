@@ -42,3 +42,5 @@ Route::get('/admin/categories/{id}/questions','AdminqaController@index')->name('
 Route::get('/admin/categories/{id}/questions/create','AdminqaController@create')->name('questions.create');
 Route::post('/admin/categories/{id}/questions','AdminqaController@store')->name('questions.store');
 Route::delete('/admin/categories/questions/{id}/destroy','AdminqaController@destroy')->name('questions.delete');
+Route::get('/admin/categories/questions/{id}/edit','AdminqaController@edit')->name('questions.edit');
+Route::post('/admin/categories/questions/{id}/update','AdminqaController@update')->name('questions.update');
