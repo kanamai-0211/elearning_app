@@ -37,3 +37,7 @@ Route::post('admin/categories','AdminController@store')->name('categories.store'
 Route::get('/admin/categories/{id}/edit','AdminController@edit')->name('categories.edit');
 Route::patch('/admin/categories/{id}/update','AdminController@update')->name('categories.update');
 Route::delete('admin/categories/{id}','AdminController@destroy')->name('categories.destroy');
+
+Route::get('/admin/categories/{id}/questions','AdminqaController@index')->name('admin.questions');
+Route::get('/admin/categories/{id}/questions/create','AdminqaController@create')->name('questions.create');
+Route::post('/admin/categories/{id}/questions','AdminqaController@store')->name('questions.store');

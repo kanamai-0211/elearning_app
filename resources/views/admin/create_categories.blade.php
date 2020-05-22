@@ -19,11 +19,11 @@
         @csrf
         <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
+            <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" required>
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <input type="text" class="form-control" name="description" id="description" value="{{ old('description') }}">
+            <input type="text" class="form-control" name="description" id="description" value="{{ old('description') }}" required>
         </div>
         <div class="d-flex justify-content-end">
             <a name="back" id="back" class="btn btn-primary mr-2" href="#">Back</a>

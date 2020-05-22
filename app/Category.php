@@ -9,4 +9,9 @@ class Category extends Model
     protected $fillable = [
         'title','description'
     ];
+
+    public function questions()
+    {
+        return $this->hasMany('App\Question');
+    }
 }
