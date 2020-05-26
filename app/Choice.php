@@ -14,4 +14,9 @@ class Choice extends Model
     {
         return $this->belongsTo('App\Question');
     }
+
+    public function answers()
+    {
+        return $this->hasMany('App\Answer');
+    }
 }
