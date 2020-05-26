@@ -30,7 +30,7 @@
                         <td>{{$choice->choice}}</td>
                         @endforeach
                         <td class="d-flex">
-                            <a href="#" class="btn btn-primary mr-2">Edit</a>
+                            <a href="{{ route('questions.edit',['id'=>$question->id]) }}" class="btn btn-primary mr-2">Edit</a>
                             <form action="{{ route('questions.delete',['id'=>$question->id ]) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
