@@ -63,4 +63,12 @@ class LessonController extends Controller
 
         return redirect($request->nextpageurl);
     }
+
+    public function result($id)
+    {
+        $lesson = Lesson::find($id);
+        $answers = $lesson->answers()->get();
+
+        return view('user/user_result',compact('lesson','answers'));
+    }
 }
