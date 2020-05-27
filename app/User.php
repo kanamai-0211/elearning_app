@@ -55,4 +55,9 @@ class User extends Authenticatable
             return false;
         }
     }
+
+    public function lessons()
+    {
+        return $this->hasMany('App\Lesson');
+    }
 }

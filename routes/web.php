@@ -44,3 +44,8 @@ Route::post('/admin/categories/{id}/questions','AdminqaController@store')->name(
 Route::delete('/admin/categories/questions/{id}/destroy','AdminqaController@destroy')->name('questions.delete');
 Route::get('/admin/categories/questions/{id}/edit','AdminqaController@edit')->name('questions.edit');
 Route::post('/admin/categories/questions/{id}/update','AdminqaController@update')->name('questions.update');
+
+Route::get('/user/{id}/categories','LessonController@index')->name('user.categories');
+Route::post('/lessons','LessonController@lesson')->name('user.lessons');
+Route::get('/lessons/{id}/category/{category}/answers','LessonController@answer')->name('user.answers');
+Route::post('/lessons/{id}/answers/new','LessonController@create_answer')->name('user.answers.new');
