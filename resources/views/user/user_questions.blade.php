@@ -17,7 +17,7 @@
                         <input class="btn btn-primary" type="hidden" name="choice_id" value="{{$choice->id}}">
                         <input class="btn btn-primary" type="hidden" name="lesson_id" value="{{$lesson->id}}">
                         @if ($questions->currentPage() == $questions->lastPage())
-                            <input class="btn btn-primary" type="hidden" name="nextpageurl" value="/user/{{ auth()->user()->id }}/categories">
+                            <input class="btn btn-primary" type="hidden" name="nextpageurl" value="/lessons/{{ $lesson->id }}">
                         @else
                             <input class="btn btn-primary" type="hidden" name="nextpageurl" value="{{ $questions->nextPageUrl() }}">
                         @endif

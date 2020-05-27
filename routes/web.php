@@ -49,3 +49,4 @@ Route::get('/user/{id}/categories','LessonController@index')->name('user.categor
 Route::post('/lessons','LessonController@lesson')->name('user.lessons');
 Route::get('/lessons/{id}/category/{category}/answers','LessonController@answer')->name('user.answers');
 Route::post('/lessons/{id}/answers/new','LessonController@create_answer')->name('user.answers.new');
+Route::get('/lessons/{id}','LessonController@result')->name('user.result');
