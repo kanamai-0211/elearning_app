@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Activity;
 use App\Answer;
 use App\Lesson;
 use App\Category;
@@ -34,7 +35,7 @@ class LessonController extends Controller
         
     }
 
-    public function answer(Request $request,$id,$category)
+    public function answer($id,$category)
     {
         
         $lesson = Lesson::find($id);
@@ -48,6 +49,8 @@ class LessonController extends Controller
         //      array('path' => $request->url())
         //  );
         //$questions = new LengthAwarePaginator($items, $total, $limit, $page);
+        
+        
 
         return view('user/user_questions',compact('lesson','category','questions'));
     }
@@ -62,6 +65,20 @@ class LessonController extends Controller
         ]);
 
         return redirect($request->nextpageurl);
+    }
+
+    public function completed($id)
+    {
+        $lesson = Lesson::find($id);
+        $lesson->completed = 1;
+        $lesson->save();
+
+        Activity::create([
+                'lesson_id' =>$id,
+                'user_id' =>$lesson->user_id,
+        ]);
+
+        return redirect()->route('user.result',['id'=>$id]);
     }
 
     public function result($id)

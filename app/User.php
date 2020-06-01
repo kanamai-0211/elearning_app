@@ -60,4 +60,21 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Lesson');
     }
+
+    public function activities()
+    {
+        return $this->hasMany('App\Activity');
+    }
+
+    public function follower_id()
+    {
+        return $this->hasMany('App\Relationship');
+    }
+
+    public function followed_id()
+    {
+        return $this->hasMany('App\Relationship');
+    }
+
+    
 }
