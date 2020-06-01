@@ -12,9 +12,6 @@ class UserController extends Controller
 {
     public function follow($id)
     {
-        // $followed_user = User::find($id);
-        // Auth::user()->following()->attach($followed_user);
-        
         $user = auth()->user();
         $followed_user = User::find($id);
         $lerationship = Relationship::create([
@@ -35,11 +32,6 @@ class UserController extends Controller
     {
         $followed_user = User::find($id);
         Auth::user()->following()->detach($followed_user);
-
-        // Activity::create([
-        //     'relationship_id' => $id,
-        //     'user_id' => auth()->user()->id,
-        // ]);
         
         return redirect()->back();
     }

@@ -41,16 +41,7 @@ class LessonController extends Controller
         $lesson = Lesson::find($id);
         $category = Category::find($category);
         $questions = $category->questions()->paginate(1);
-        //  $questions = new LengthAwarePaginator(
-        //      $questions -> forPage($request->page,1),
-        //      count($questions),
-        //      1,
-        //      $request->page,
-        //      array('path' => $request->url())
-        //  );
-        //$questions = new LengthAwarePaginator($items, $total, $limit, $page);
-        
-        
+
 
         return view('user/user_questions',compact('lesson','category','questions'));
     }
@@ -74,9 +65,10 @@ class LessonController extends Controller
         $lesson->save();
 
         Activity::create([
-                'lesson_id' =>$id,
-                'user_id' =>$lesson->user_id,
+            'lesson_id' =>$id,
+            'user_id' =>$lesson->user_id,
         ]);
+        
 
         return redirect()->route('user.result',['id'=>$id]);
     }

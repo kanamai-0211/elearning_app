@@ -29,9 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = auth()->user();
-        //$activities = Activity::all();
         $activities = $user->activities()->get();
-        //$auth_activities = $activities->user()->get();
 
         return view('home',compact('activities'));
     }
