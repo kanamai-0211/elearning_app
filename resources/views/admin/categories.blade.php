@@ -21,7 +21,7 @@
                 <tbody>
                 @foreach($categories as $category)
                     <tr>
-                        <td>{{ $category->title }}</td>
+                        <td><a href="{{ route('admin.questions',['id'=>$category->id]) }}">{{ $category->title }}</a></td>
                         <td>{{ $category->description }}</td>
                         <td class="d-flex">
                             <a class="btn btn-primary mr-2" href="{{ route('categories.edit',['id'=>$category->id]) }}">Edit</a>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Activity;
+use App\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,7 +28,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = auth()->user();
+        $activities = $user->activities()->get();
+
+        return view('home',compact('activities'));
     }
 
     public function list()
@@ -39,8 +44,9 @@ class HomeController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+        $activities = $user->activities()->get();
 
-        return view('otheruser',compact('user'));
+        return view('otheruser',compact('user','activities'));
     }
 
     public function edit($user)
